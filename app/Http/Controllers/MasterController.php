@@ -30,4 +30,7 @@ class MasterController extends Controller
 	  return view('home.index');
 	}
 
+	public function enq(){
+		return view('enquiry.index');
+	}
 }

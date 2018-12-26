@@ -22,6 +22,8 @@ class CreateUserDetailsTable extends Migration
         //     $table->string('branch');
         //     $table->string('f_title');
         //     $table->string('c_title');
+            // $table->softDeletes();
+        
         //     $table->timestamps();
         // });
     }

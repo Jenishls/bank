@@ -10,33 +10,30 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
-
-mix.copy('node_modules/bootstrap/dist/css/bootstrap.css','resources/css/bootstrap.css');
-
-mix.copy('node_modules/jquery/dist/jquery.js','resources/js/jquery.js');
-mix.copy('node_modules/bootstrap/dist/js/bootstrap.js','resources/js/bootstrap.js');
-
 mix.scripts([
 	'resources/js/jquery.js',
-	// 'resources/js/extra/popper.js',
-	// 'resources/js/bootstrap.js',
-	// 'resources/js/extra/match-height.js',
-	// 	'resources/js/extra/main.js',
-	// 'resources/js/extra/chart.js',
-	// 'resources/js/extra/chartist.js',
-	// 'resources/js/extra/chartist-legend.js',
-	// 'resources/js/extra/jquery.flot.js',
-	// 'resources/js/extra/jquery.flot.plot.js',
-	// 'resources/js/extra/jquery.flot.spline.js',
-	// 'resources/js/extra/jquery.simpleWeather.js',
-	// 'resources/js/extra/weather-init.js',
-	// 'resources/js/extra/moment.js',
-	// 'resources/js/extra/fullcalendar.js',
-	// 'resources/js/extra/fullcalendar-init.js',
-	// 'resources/js/extra/jquery.js',
+	'resources/js/extra/popper.js',
+	'resources/js/bootstrap.js',
+	'resources/js/extra/match-height.js',
+		'resources/js/extra/main.js',
+	'resources/js/extra/chart.js',
+	'resources/js/extra/chartist.js',
+	'resources/js/extra/chartist-legend.js',
+	'resources/js/extra/jquery.flot.js',
+	'resources/js/extra/jquery.flot.plot.js',
+	'resources/js/extra/jquery.flot.spline.js',
+	'resources/js/extra/jquery.simpleWeather.js',
+	'resources/js/extra/weather-init.js',
+	'resources/js/extra/moment.js',
+	'resources/js/extra/fullcalendar.js',
+	'resources/js/extra/fullcalendar-init.js',
+	'resources/js/extra/jquery.js',
+	'resources/js/extra/chosen.jquery.min',
+	'resources/js/bootstrap-table.js',
+	'resources/js/ajaxRequest.js',
+	'resources/js/custom.js',
+	'resources/js/getIP.js',
+	// 'resources/css/extra/select2.js',
 	],
 	'public/js/all.js');
 
@@ -53,6 +50,8 @@ mix.styles([
 	'resources/css/extra/jqmap.css',
 	'resources/css/extra/weather-icons.css',
 	'resources/css/extra/fullcalendar.css',
+	// 'resources/css/extra/select2.css',
+	'resources/css/bootstrap-table.min.css',
 
 	'resources/css/custom.css',
 	],'public/css/all.css');

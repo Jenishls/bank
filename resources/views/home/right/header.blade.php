@@ -1,7 +1,7 @@
 <header id="header" class="header">
   <div class="top-left">
     <div class="navbar-header">
-      <a class="navbar-brand" href="./"><img src="images/logo.png" alt="Logo"></a>
+      <a class="navbar-brand" href="./" style="width: auto; margin-right: 0px"><img src="http://www.nccbank.com.np/assets/upload/images/config/xlogo.gif.pagespeed.ic.haF-J9j4Tk.webp" alt="Logo"></a>
       <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
       <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
     </div>

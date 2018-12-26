@@ -15,6 +15,15 @@ class CreateEnquiriesTable extends Migration
     {
         Schema::create('enquiries', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('branch');
+            $table->ipAddress('ip');
+            $table->string('dept');
+            $table->string('designation');
+            $table->longText('enquiry');
+            $table->integer('userc_id');
+            $table->integer('useru_id');
+            $table->integer('userd_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

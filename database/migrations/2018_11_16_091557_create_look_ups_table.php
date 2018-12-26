@@ -17,7 +17,9 @@ class CreateLookUpsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('value');
-            $table->longText('desc');
+            $table->longText('desc')->nullable();
+            $table->softDeletes();
+
             $table->timestamps();
         });
     }

@@ -14,7 +14,24 @@ class LookUpController extends Controller
      */
     public function index()
     {
-        //
+        return view('setting.lookup.index');
+    }
+
+    public function fetch($param, Request $req)
+    {
+        // dd($req->terms['term']);
+        // LookUp::where('title',$param)->distinct('title')->get()
+        $query = \DB::table('look_ups')
+                ->select('value as id','value as text')
+                ->where('title',$param)
+                ->orderBy('value');
+        
+        if(array_key_exists('term', $req->terms))
+            $query = $query->where('value', 'like', $req->terms['term']. '%' );
+
+        $data = $query->get();
+
+        return $data->toArray();
     }
 
     /**
@@ -24,7 +41,7 @@ class LookUpController extends Controller
      */
     public function create()
     {
-        //
+        return view('setting.lookup.add');
     }
 
     /**
@@ -35,7 +52,8 @@ class LookUpController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        LookUp::create($request->all());
     }
 
     /**
@@ -44,9 +62,10 @@ class LookUpController extends Controller
      * @param  \App\LookUp  $lookUp
      * @return \Illuminate\Http\Response
      */
-    public function show(LookUp $lookUp)
+    public function show()
     {
-        //
+        $data = LookUp::orderBy('created_at','desc')->get();
+        return $data->toArray();
     }
 
     /**
@@ -57,7 +76,9 @@ class LookUpController extends Controller
      */
     public function edit(LookUp $lookUp)
     {
-        //
+        // $data = LookUp::find($lookUp);
+        $data = $lookUp;
+        return view('setting.lookup.edit',compact('data'));
     }
 
     /**
@@ -69,7 +90,7 @@ class LookUpController extends Controller
      */
     public function update(Request $request, LookUp $lookUp)
     {
-        //
+        $lookUp->update($request->all());
     }
 
     /**
@@ -80,6 +101,6 @@ class LookUpController extends Controller
      */
     public function destroy(LookUp $lookUp)
     {
-        //
+        $lookUp->delete();
     }
 }

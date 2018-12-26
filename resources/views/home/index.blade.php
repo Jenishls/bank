@@ -1,17 +1,17 @@
 @extends('layout.master')
 @section('content')
   <!-- Left Panel -->
-  @include('home.left.main')
+  @include('layout.inc.sideNav')
   <!-- /#left-panel -->
 
   <!-- Right Panel -->
-  <div id="right-panel" class="right-panel">
+  <div id="right-panel" class="right-panel"  style="margin-top: 25px !important">
     <!-- Header-->
     @include('home.right.header')
     <!-- /#header -->
 
     <!-- Content -->
-    <div class="content">
+    <div id="right-content" class="content" style="min-height: 80vh;margin-top: 20px;">
       <!-- Animated -->
       <div class="animated fadeIn">
       	@include('home.right.widgets')
@@ -19,11 +19,11 @@
 
         <div class="clearfix"></div>
         
-        @include('home.right.orders')  
+        {{--@include('home.right.orders')  
         @include('home.right.todo')
         @include('home.right.calendar-weather')
         @include('home.right.event.add')
-        @include('home.right.event.category')
+        @include('home.right.event.category')--}}
       </div>
       <!-- .animated -->
     </div>
@@ -41,57 +41,58 @@
     "use strict";
 
     // Pie chart flotPie1
-    var piedata = [
-      { label: "Desktop visits", data: [[1,32]], color: '#5c6bc0'},
-      { label: "Tab visits", data: [[1,33]], color: '#ef5350'},
-      { label: "Mobile visits", data: [[1,35]], color: '#66bb6a'}
-    ];
+    // var piedata = [
+    //   { label: "Desktop visits", data: [[1,32]], color: '#5c6bc0'},
+    //   { label: "Tab visits", data: [[1,33]], color: '#ef5350'},
+    //   { label: "Mobile visits", data: [[1,35]], color: '#66bb6a'}
+    // ];
 
-      $.plot('#flotPie1', piedata, {
-        series: {
-          pie: {
-            show: true,
-            radius: 1,
-            innerRadius: 0.65,
-            label: {
-              show: true,
-              radius: 2/3,
-              threshold: 1
-            },
-            stroke: {
-              width: 0
-            }
-          }
-        },
-        grid: {
-          hoverable: true,
-          clickable: true
-        }
-      });
+      // $.plot('#flotPie1', piedata, {
+      //   series: {
+      //     pie: {
+      //       show: true,
+      //       radius: 1,
+      //       innerRadius: 0.65,
+      //       label: {
+      //         show: true,
+      //         radius: 2/3,
+      //         threshold: 1
+      //       },
+      //       stroke: {
+      //         width: 0
+      //       }
+      //     }
+      //   },
+      //   grid: {
+      //     hoverable: true,
+      //     clickable: true
+      //   }
+      // });
 
       // Pie chart flotPie1  End
       // cellPaiChart
-      var cellPaiChart = [
-        { label: "Direct Sell", data: [[1,65]], color: '#5b83de'},
-        { label: "Channel Sell", data: [[1,35]], color: '#00bfa5'}
-      ];
-      $.plot('#cellPaiChart', cellPaiChart, {
-          series: {
-            pie: {
-              show: true,
-              stroke: {
-                width: 0
-              }
-            }
-          },
-          legend: {
-            show: false
-          },grid: {
-            hoverable: true,
-            clickable: true
-          }
-      });
+      // var cellPaiChart = [
+      //   { label: "Direct Sell", data: [[1,65]], color: '#5b83de'},
+      //   { label: "Channel Sell", data: [[1,35]], color: '#00bfa5'}
+      // ];
+      // $.plot('#cellPaiChart', cellPaiChart, {
+      //     series: {
+      //       pie: {
+      //         show: true,
+      //         stroke: {
+      //           width: 0
+      //         }
+      //       }
+      //     },
+      //     legend: {
+      //       show: false
+      //     },grid: {
+      //       hoverable: true,
+      //       clickable: true
+      //     }
+      // });
       // cellPaiChart End
+      
       // Line Chart  #flotLine5
       var newCust = [[0, 3], [1, 5], [2,4], [3, 7], [4, 9], [5, 3], [6, 6], [7, 4], [8, 10]];
 

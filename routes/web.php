@@ -19,3 +19,6 @@ Route::get('/','MasterController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/enquiry','MasterController@enq')->name('enq');
+
+Route::get('/getLookUp/{lookup}','LookUpController@fetch');
