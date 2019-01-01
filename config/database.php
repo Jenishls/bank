@@ -72,16 +72,16 @@ return [
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', '192.168.103.72'),
             'port' => env('DB_PORT', '1433'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'PumoriPlusIVNCCBBACK'),
+            'username' => env('DB_USERNAME', 'IntraNet'),
+            'password' => env('DB_PASSWORD', 'netintra321.'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-
+//PumiIntranet
     ],
 
     /*

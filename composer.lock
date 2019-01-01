@@ -4,8 +4,114 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66ca7343889332c2b8ecca11c251430c",
+    "content-hash": "6768adaf60c72266fb27e384ef6344b7",
     "packages": [
+        {
+            "name": "adldap2/adldap2",
+            "version": "v9.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Adldap2/Adldap2.git",
+                "reference": "e74bf7e3762b35e828179b11eb100da4a12ff701"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Adldap2/Adldap2/zipball/e74bf7e3762b35e828179b11eb100da4a12ff701",
+                "reference": "e74bf7e3762b35e828179b11eb100da4a12ff701",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ldap": "*",
+                "illuminate/contracts": "~5.0",
+                "php": ">=7.0",
+                "tightenco/collect": "~5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Adldap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steve Bauman",
+                    "email": "steven_bauman@outlook.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP LDAP Package for humans.",
+            "keywords": [
+                "active directory",
+                "ad",
+                "adLDAP",
+                "adldap2",
+                "directory",
+                "ldap",
+                "windows"
+            ],
+            "time": "2018-12-06T15:03:32+00:00"
+        },
+        {
+            "name": "adldap2/adldap2-laravel",
+            "version": "v5.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Adldap2/Adldap2-Laravel.git",
+                "reference": "9c58cb3dd010ddf7df626e13bcb2fe967aa3a8b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Adldap2/Adldap2-Laravel/zipball/9c58cb3dd010ddf7df626e13bcb2fe967aa3a8b6",
+                "reference": "9c58cb3dd010ddf7df626e13bcb2fe967aa3a8b6",
+                "shasum": ""
+            },
+            "require": {
+                "adldap2/adldap2": "^9.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "~3.7",
+                "phpunit/phpunit": "~7.0"
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Adldap\\Laravel\\AdldapServiceProvider",
+                        "Adldap\\Laravel\\AdldapAuthServiceProvider"
+                    ],
+                    "aliases": {
+                        "Adldap": "Adldap\\Laravel\\Facades\\Adldap"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Adldap\\Laravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "LDAP Authentication & Management for Laravel.",
+            "keywords": [
+                "adLDAP",
+                "adldap2",
+                "laravel",
+                "ldap"
+            ],
+            "time": "2018-12-31T16:40:10+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -1337,6 +1443,76 @@
             "time": "2018-07-19T23:38:55+00:00"
         },
         {
+            "name": "silber/bouncer",
+            "version": "v1.0.0-rc.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JosephSilber/bouncer.git",
+                "reference": "7c74184ba01e329e10cab7f80dbcf91ba535df1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JosephSilber/bouncer/zipball/7c74184ba01e329e10cab7f80dbcf91ba535df1b",
+                "reference": "7c74184ba01e329e10cab7f80dbcf91ba535df1b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "5.1.20 - 5.7",
+                "illuminate/cache": "5.1.20 - 5.7",
+                "illuminate/container": "5.1.20 - 5.7",
+                "illuminate/contracts": "5.1.20 - 5.7",
+                "illuminate/database": "5.1.20 - 5.7"
+            },
+            "require-dev": {
+                "illuminate/console": "5.1.20 - 5.7",
+                "illuminate/events": "5.1.20 - 5.7",
+                "larapack/dd": "^1.1",
+                "mockery/mockery": "^0.9.5",
+                "phpunit/phpunit": "^4.8.35"
+            },
+            "suggest": {
+                "illuminate/console": "Allows running the bouncer:clean artisan command",
+                "illuminate/events": "Required for multi-tenancy support"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Silber\\Bouncer\\BouncerServiceProvider"
+                    ],
+                    "aliases": {
+                        "Bouncer": "Silber\\Bouncer\\BouncerFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Silber\\Bouncer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joseph Silber",
+                    "email": "contact@josephsilber.com"
+                }
+            ],
+            "description": "Eloquent roles and abilities.",
+            "keywords": [
+                "abilities",
+                "acl",
+                "capabilities",
+                "eloquent",
+                "laravel",
+                "permissions",
+                "roles"
+            ],
+            "time": "2018-10-22T13:47:57+00:00"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v6.1.3",
             "source": {
@@ -2266,6 +2442,99 @@
                 "dump"
             ],
             "time": "2018-10-02T16:36:10+00:00"
+        },
+        {
+            "name": "tangervu/activedirectory",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tangervu/ActiveDirectory.php.git",
+                "reference": "7b18f9d0e3bb63f05e50e569e5aaa07a71ae1050"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tangervu/ActiveDirectory.php/zipball/7b18f9d0e3bb63f05e50e569e5aaa07a71ae1050",
+                "reference": "7b18f9d0e3bb63f05e50e569e5aaa07a71ae1050",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ActiveDirectory\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tuomas Angervuori",
+                    "email": "tuomas.angervuori@gmail.com",
+                    "homepage": "http://anger.kapsi.fi/tuomas/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "User authentication and access control tools for Active Directory",
+            "homepage": "https://github.com/tangervu/ActiveDirectory.php",
+            "keywords": [
+                "Authentication",
+                "access control",
+                "active directory",
+                "kerberos",
+                "ldap"
+            ],
+            "time": "2014-08-18T05:33:12+00:00"
+        },
+        {
+            "name": "tightenco/collect",
+            "version": "v5.7.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tightenco/collect.git",
+                "reference": "799108d67cdc9843ed3569ae2989888826166381"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tightenco/collect/zipball/799108d67cdc9843ed3569ae2989888826166381",
+                "reference": "799108d67cdc9843ed3569ae2989888826166381",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/var-dumper": ">=3.4 <5"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "nesbot/carbon": "^1.26.3",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Collect/Support/helpers.php",
+                    "src/Collect/Support/alias.php"
+                ],
+                "psr-4": {
+                    "Tightenco\\Collect\\": "src/Collect"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                }
+            ],
+            "description": "Collect - Illuminate Collections as a separate package.",
+            "keywords": [
+                "collection",
+                "laravel"
+            ],
+            "time": "2018-12-17T15:11:32+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -4125,7 +4394,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "tangervu/activedirectory": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
