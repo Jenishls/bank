@@ -36,8 +36,10 @@ mix.scripts([
 	'resources/js/extra/moment.js',
 	'resources/js/extra/fullcalendar.js',
 	'resources/js/extra/fullcalendar-init.js',
-	'resources/js/extra/jquery.js',
-	'resources/js/numeral.js'
+	'resources/js/ajaxRequest.js',
+	'resources/js/numeral.js',
+	'resources/js/bootstrap-table.min.js',
+
 	],
 	'public/js/all.js');
 
@@ -56,4 +58,6 @@ mix.styles([
 	'resources/css/extra/fullcalendar.css',
 
 	'resources/css/custom.css',
+	'resources/css/bootstrap-table.min.css',
+
 	],'public/css/all.css');

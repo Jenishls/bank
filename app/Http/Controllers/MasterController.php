@@ -6,16 +6,26 @@ use App\User;
 use App\Models\ConstantTable;
 use Illuminate\Http\Request;
 use ActiveDirectory;
+use Adldap\Laravel\Facades\Adldap;
 
 class MasterController extends Controller
 {
+	//dsquery user dc=example,dc=com -name username-here*
 	public function index(){
-		$user = new ActiveDirectory\User();
-		// dd($user->loadConfig())); 
-		// dd($_SERVER);
+		// $ds = ldap_connect('nccbank.com.np',389);
+		// ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3);
+		// $dn = 'NCCBANK\TEST';
+		// $bind = ldap_bind($ds,$dn,'1234567890');
+		// $filter = "(uid=JENISH1416)";
+		// $result = ldap_search($ds, "dc=nccbank,dc=com,dc=np", $filter) or exit("unable to search");
+		// $entries = ldap_get_entries($ds,$result);
+		// dd($entries);
+		// Adldap::user()->attempt('NCCBANK\TEST','1234567890');
+		// DD($user);
 		$depo = self::depo1(self::reval(),self::code()) + self::depo2(self::reval(),self::code());
-		$adServer = "nccbank.com.np";
-	  $ldap = ldap_connect($adServer);
+
+
+											// dd($dormant->toArray());
 	  return view('home.index',compact('depo'));
 	}
 
@@ -56,7 +66,17 @@ class MasterController extends Controller
 													AND M.CyCode=R.CyCode2   ");
 	   return $data[0]->Balance;
 	}
-
+	public function dormantFetch(){
+		$dormant = \DB::table('Master as m')
+									->whereIn('m.AcType',['07','08','09','0A','0B','0D','0E','13','10','16'])
+									->join('BranchTable as b','b.BranchCode','m.BranchCode')
+									->join('AcTypeTable as a','a.AcType','m.AcType')
+									->where('IsDormant','T')
+									->select('m.Name','a.AcTypeDesc','m.GoodBaln','b.BranchName')
+									->take(5000)
+									->get()->toArray();
+		return $dormant;
+	}
 
 }
 // IntraNet netintra321.

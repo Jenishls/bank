@@ -1,132 +1,93 @@
-<!-- Orders -->
+Orders -->
 <div class="orders">
   <div class="row">
-    <div class="col-xl-8">
+    <div class="col-xl-12">
       <div class="card">
         <div class="card-body">
-          <h4 class="box-title">Orders </h4>
-        </div>
-        <div class="card-body--">
-          <div class="table-stats order-table ov-h">
-            <table class="table ">
-              <thead>
-                <tr>
-                  <th class="serial">#</th>
-                  <th class="avatar">Avatar</th>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Product</th>
-                  <th>Quantity</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
+          <div id="toolbar">
+            <h4 class="box-title">Dormant Accounts</h4>
+            {{-- <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Something</label>
+                  <select class="form-control" style="height:1em"></select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Something</label>
+                  <select class="form-control" style="height:1em"></select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Something</label>
+                  <select class="form-control" style="height:1em"></select>
+                </div>
+              </div>
+            </div> --}}
+          </div>
+          <table id="table"
+                 data-toolbar="#toolbar"
+                 data-search="true"
+                 data-show-refresh="true"
+                 data-show-toggle="true"
+                 data-show-columns="true"
+                 data-show-export="true"
+                 data-minimum-count-columns="2"
+                 data-show-pagination-switch="true"
+                 data-pagination="true"
+                 data-row-style = 'rowStyle' 
+                 data-id-field="id"
+                 data-page-list="[10, 25, 50, 100, ALL]"
+                 data-url="{{route('dormant.fetch')}}"
+                 class="table-striped">
+                <thead class="thead-dark">
                   <tr>
-                      <td class="serial">1.</td>
-                      <td class="avatar">
-                          <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="images/avatar/1.jpg" alt=""></a>
-                          </div>
-                      </td>
-                      <td> #5469 </td>
-                      <td>  <span class="name">Louis Stanley</span> </td>
-                      <td> <span class="product">iMax</span> </td>
-                      <td><span class="count">231</span></td>
-                      <td>
-                        <span class="badge badge-complete">Complete</span>
-                      </td>
+                    <th data-field="Name" data-sortable="true">Name</th>
+                    <th data-field="BranchName" data-sortable="true"> Branch</th>
+                    <th data-field="AcTypeDesc" data-sortable="true">Account Type</th>
+                    <th data-field="GoodBaln" data-sortable="true" data-formatter="money">Balance</th>
                   </tr>
-                  <tr>
-                      <td class="serial">2.</td>
-                      <td class="avatar">
-                          <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="images/avatar/2.jpg" alt=""></a>
-                          </div>
-                      </td>
-                      <td> #5468 </td>
-                      <td>  <span class="name">Gregory Dixon</span> </td>
-                      <td> <span class="product">iPad</span> </td>
-                      <td><span class="count">250</span></td>
-                      <td>
-                        <span class="badge badge-complete">Complete</span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="serial">3.</td>
-                      <td class="avatar">
-                          <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="images/avatar/3.jpg" alt=""></a>
-                          </div>
-                      </td>
-                      <td> #5467 </td>
-                      <td>  <span class="name">Catherine Dixon</span> </td>
-                      <td> <span class="product">SSD</span> </td>
-                      <td><span class="count">250</span></td>
-                      <td>
-                        <span class="badge badge-complete">Complete</span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="serial">4.</td>
-                      <td class="avatar">
-                          <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="images/avatar/4.jpg" alt=""></a>
-                          </div>
-                      </td>
-                      <td> #5466 </td>
-                      <td>  <span class="name">Mary Silva</span> </td>
-                      <td> <span class="product">Magic Mouse</span> </td>
-                      <td><span class="count">250</span></td>
-                      <td>
-                        <span class="badge badge-pending">Pending</span>
-                      </td>
-                  </tr>
-                  <tr class=" pb-0">
-                      <td class="serial">5.</td>
-                      <td class="avatar pb-0">
-                          <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="images/avatar/6.jpg" alt=""></a>
-                          </div>
-                      </td>
-                      <td> #5465 </td>
-                      <td>  <span class="name">Johnny Stephens</span> </td>
-                      <td> <span class="product">Monitor</span> </td>
-                      <td><span class="count">250</span></td>
-                      <td>
-                        <span class="badge badge-complete">Complete</span>
-                      </td>
-                  </tr>
-              </tbody>
-            </table>
-          </div> <!-- /.table-stats -->
+                </thead>
+          </table>
         </div>
       </div> <!-- /.card -->
     </div>  <!-- /.col-lg-8 -->
 
-    <div class="col-xl-4">
-      <div class="row">
-        <div class="col-lg-6 col-xl-12">
-          <div class="card br-0">
-            <div class="card-body">
-              <div class="chart-container ov-h">
-                <div id="flotPie1" class="float-chart"></div>
-              </div>
-            </div>
-          </div><!-- /.card -->
-        </div>
-
-        <div class="col-lg-6 col-xl-12">
-          <div class="card bg-flat-color-3  ">
-            <div class="card-body">
-              <h4 class="card-title m-0  white-color ">August 2018</h4>
-            </div>
-             <div class="card-body">
-               <div id="flotLine5" class="flot-line"></div>
-             </div>
-          </div>
-        </div>
-      </div>
-    </div> <!-- /.col-md-4 -->
+    
   </div>
 </div>
-<!-- /.orders -->
+
+<script type="text/javascript">
+  var $ = jQuery; 
+  const $table = $('#table');
+  $table.bootstrapTable({
+    height: getHeight(),
+    // query: getParams()
+  });
+
+  // var getParams = function(){
+  //   $params = {};
+  //   $params[] = '';
+  //   $params[] = '';
+  //   $params[] = '';
+  //   $params[] = '';
+  // }
+  function getHeight() {
+    return $(window).height() - $('h1').outerHeight(true);
+  }
+
+  function money(value,row,index){
+    return numeral(value).format('0,0.00');
+  }
+
+  function rowStyle(row,index){
+    return {
+      css:{'font-size':'12px'}
+    };
+  }
+  $('.bootstrap-table .columns-right.float-right button[name="paginationSwitch"]').empty().html('&#8691;').css('font-weight','bolder');
+  $('.bootstrap-table .columns-right.float-right button[name="refresh"]').empty().html('&#8635;').css('font-weight','bolder');
+</script>
+<!-- /.orders

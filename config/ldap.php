@@ -167,7 +167,7 @@ return [
                 |
                 */
 
-                'base_dn' => env('LDAP_BASE_DN', 'dc=corp,dc=acme,dc=org'),
+                'base_dn' => env('LDAP_BASE_DN', 'NCCBANK\TEST'),
 
                 /*
                 |--------------------------------------------------------------------------
@@ -182,8 +182,8 @@ return [
                 |
                 */
 
-                'username' => env('JENISH1416'),
-                'password' => env('123456789'),
+                'username' => env('TEST'),
+                'password' => env('1234567890'),
 
                 /*
                 |--------------------------------------------------------------------------

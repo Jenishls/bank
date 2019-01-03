@@ -12,7 +12,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" type="text/css" href="{{ asset('css/all.css')}}">
-  
+    <script src="{{asset('js/all.js')}}"></script>
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@
 <body>
 	<!-- @include('layout.inc.navbar') -->
 		@yield('content')
-	<script src="{{asset('js/all.js')}}"></script>
+
 
 <!--     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>

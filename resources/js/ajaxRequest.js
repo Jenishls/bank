@@ -1,3 +1,5 @@
+var $ = jQuery;
+console.log('asdf');
 $.ajaxSetup({
   headers: {
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
