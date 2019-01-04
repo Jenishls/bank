@@ -39,7 +39,7 @@ mix.scripts([
 	'resources/js/ajaxRequest.js',
 	'resources/js/numeral.js',
 	'resources/js/bootstrap-table.min.js',
-
+	'resources/js/select2.min.js',
 	],
 	'public/js/all.js');
 
@@ -56,8 +56,9 @@ mix.styles([
 	'resources/css/extra/jqmap.css',
 	'resources/css/extra/weather-icons.css',
 	'resources/css/extra/fullcalendar.css',
-
 	'resources/css/custom.css',
 	'resources/css/bootstrap-table.min.css',
-
-	],'public/css/all.css');
+	'resources/css/select2.min.css',
+	'resources/css/select2-bootstrap.min.css',
+	],
+	'public/css/all.css');

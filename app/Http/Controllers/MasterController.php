@@ -12,6 +12,11 @@ class MasterController extends Controller
 {
 	//dsquery user dc=example,dc=com -name username-here*
 	public function index(){
+
+		// $data = Master::where('AcType','49')->take(5)->get()->toArray();
+		// dd($data);
+		// $data = \DB::table('Master')->select('Name as text','ClientCode as id')->take(5)->get()->toArray();
+		// dd($data);
 		// $ds = ldap_connect('nccbank.com.np',389);
 		// ldap_set_option($ds, LDAP_OPT_PROTOCOL_VERSION, 3);
 		// $dn = 'NCCBANK\TEST';
@@ -66,16 +71,33 @@ class MasterController extends Controller
 													AND M.CyCode=R.CyCode2   ");
 	   return $data[0]->Balance;
 	}
-	public function dormantFetch(){
-		$dormant = \DB::table('Master as m')
+
+	
+	public function dormantFetch(Request $req){
+		$query = \DB::table('Master as m')
 									->whereIn('m.AcType',['07','08','09','0A','0B','0D','0E','13','10','16'])
 									->join('BranchTable as b','b.BranchCode','m.BranchCode')
 									->join('AcTypeTable as a','a.AcType','m.AcType')
 									->where('IsDormant','T')
-									->select('m.Name','a.AcTypeDesc','m.GoodBaln','b.BranchName')
-									->take(5000)
-									->get()->toArray();
-		return $dormant;
+									->select('m.Name','a.AcTypeDesc','m.GoodBaln','b.BranchName');
+
+		if(array_key_exists('ClientCode', $req->all())){
+			$filter = $req->all();
+			unset($filter['order']);
+			unset($filter['search']);
+
+			foreach ($filter as $key => $val) {
+				if(!is_null($val))
+					$query = $query->where('m.'.$key, strtoupper($val))
+				    					   ->orWhere('m.'.$key,strtolower($val))	
+											   ->orWhere('m.'.$key,ucfirst($val));
+			}
+		}							
+		// $query = $query->where('m.AcType','01');
+		$dormant = $query->take(50)
+										 ->get()->toArray();
+										 // dd($dormant);
+		 return $dormant;
 	}
 
 }
