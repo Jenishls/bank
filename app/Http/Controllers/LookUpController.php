@@ -19,7 +19,7 @@ class LookUpController extends Controller
 
     public function fetch($param, Request $req)
     {
-        // dd($req->terms['term']);
+        dd($req->all());
         // LookUp::where('title',$param)->distinct('title')->get()
         $query = \DB::table('look_ups')
                 ->select('value as id','value as text')

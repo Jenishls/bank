@@ -39,10 +39,11 @@ jQuery(document).ready(function($) {
 		$(this).prop('Counter',0).animate({
 			Counter: $(this).text()
 		}, {
-			duration: 3000,
+			duration: 500,
 			easing: 'swing',
 			step: function (now) {
-				$(this).text(Math.ceil(now));
+				$(this).text(numeral(now).format('0,0.00'))
+				// $(this).text(Math.ceil(now));
 			}
 		});
 	});

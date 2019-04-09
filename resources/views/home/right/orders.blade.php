@@ -1,132 +1,157 @@
-<!-- Orders -->
 <div class="orders">
   <div class="row">
-    <div class="col-xl-8">
+    <div class="col-xl-12">
       <div class="card">
         <div class="card-body">
-          <h4 class="box-title">Orders </h4>
-        </div>
-        <div class="card-body--">
-          <div class="table-stats order-table ov-h">
-            <table class="table ">
-              <thead>
-                <tr>
-                  <th class="serial">#</th>
-                  <th class="avatar">Avatar</th>
-                  <th>ID</th>
-                  <th>Name</th>
-                  <th>Product</th>
-                  <th>Quantity</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td class="serial">1.</td>
-                      <td class="avatar">
-                          <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="images/avatar/1.jpg" alt=""></a>
-                          </div>
-                      </td>
-                      <td> #5469 </td>
-                      <td>  <span class="name">Louis Stanley</span> </td>
-                      <td> <span class="product">iMax</span> </td>
-                      <td><span class="count">231</span></td>
-                      <td>
-                        <span class="badge badge-complete">Complete</span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="serial">2.</td>
-                      <td class="avatar">
-                          <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="images/avatar/2.jpg" alt=""></a>
-                          </div>
-                      </td>
-                      <td> #5468 </td>
-                      <td>  <span class="name">Gregory Dixon</span> </td>
-                      <td> <span class="product">iPad</span> </td>
-                      <td><span class="count">250</span></td>
-                      <td>
-                        <span class="badge badge-complete">Complete</span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="serial">3.</td>
-                      <td class="avatar">
-                          <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="images/avatar/3.jpg" alt=""></a>
-                          </div>
-                      </td>
-                      <td> #5467 </td>
-                      <td>  <span class="name">Catherine Dixon</span> </td>
-                      <td> <span class="product">SSD</span> </td>
-                      <td><span class="count">250</span></td>
-                      <td>
-                        <span class="badge badge-complete">Complete</span>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td class="serial">4.</td>
-                      <td class="avatar">
-                          <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="images/avatar/4.jpg" alt=""></a>
-                          </div>
-                      </td>
-                      <td> #5466 </td>
-                      <td>  <span class="name">Mary Silva</span> </td>
-                      <td> <span class="product">Magic Mouse</span> </td>
-                      <td><span class="count">250</span></td>
-                      <td>
-                        <span class="badge badge-pending">Pending</span>
-                      </td>
-                  </tr>
-                  <tr class=" pb-0">
-                      <td class="serial">5.</td>
-                      <td class="avatar pb-0">
-                          <div class="round-img">
-                            <a href="#"><img class="rounded-circle" src="images/avatar/6.jpg" alt=""></a>
-                          </div>
-                      </td>
-                      <td> #5465 </td>
-                      <td>  <span class="name">Johnny Stephens</span> </td>
-                      <td> <span class="product">Monitor</span> </td>
-                      <td><span class="count">250</span></td>
-                      <td>
-                        <span class="badge badge-complete">Complete</span>
-                      </td>
-                  </tr>
-              </tbody>
-            </table>
-          </div> <!-- /.table-stats -->
-        </div>
-      </div> <!-- /.card -->
-    </div>  <!-- /.col-lg-8 -->
-
-    <div class="col-xl-4">
-      <div class="row">
-        <div class="col-lg-6 col-xl-12">
-          <div class="card br-0">
-            <div class="card-body">
-              <div class="chart-container ov-h">
-                <div id="flotPie1" class="float-chart"></div>
-              </div>
-            </div>
-          </div><!-- /.card -->
-        </div>
-
-        <div class="col-lg-6 col-xl-12">
-          <div class="card bg-flat-color-3  ">
-            <div class="card-body">
-              <h4 class="card-title m-0  white-color ">August 2018</h4>
-            </div>
-             <div class="card-body">
-               <div id="flotLine5" class="flot-line"></div>
-             </div>
+          <div id="toolbar">
+            <h4 class="box-title">Dormant Accounts</h4>
           </div>
+          <table id="table"
+                data-toolbar="#toolbar"
+                data-search="true"
+                data-show-refresh="true"
+                data-show-toggle="true"
+                data-show-columns="true"
+                data-show-export="true"
+                data-minimum-count-columns="2"
+                data-show-pagination-switch="true"
+                data-pagination="true"
+                data-row-style = 'rowStyle' 
+                data-id-field="id"
+                data-page-list="[10, 25, 50, 100, ALL]"
+                data-classes = "table table-hover"
+                data-url="{{route('dormant.fetch')}}"
+            class="table-striped">
+            <thead class="alert alert-info">
+              <tr>
+                <th data-field="Name" data-sortable="true" data-width="25%">Name</th>
+                <th data-field="BranchName" data-sortable="true" data-width="25%"> Branch</th>
+                <th data-field="AcTypeDesc" data-sortable="true" data-width="25%">Account Type</th>
+                <th data-field="GoodBaln" data-sortable="true" data-formatter="money" data-width="25%">Balance</th>
+              </tr>
+            </thead>
+          </table>
         </div>
       </div>
-    </div> <!-- /.col-md-4 -->
+    </div>
   </div>
 </div>
-<!-- /.orders -->
+
+<script type="text/javascript">
+  var $ = jQuery; 
+  const $table = $('#table');
+  jQuery(document).ready(function($) {
+    $('select.name').select2({
+      placeholder: "Select Name",
+      allowClear: true,
+      ajax:{
+        url:'getClientName',
+        // dataType: 'json',
+        processResults:function(data){
+          return{
+            results:data
+          }
+        }
+      }
+    }).on('change',function(){
+      renderTable();
+    });
+
+    $('select.branch').select2({
+      placeholder: "Select Branch",
+      allowClear: true,
+      ajax:{
+        url:'getBranch',
+        cache:true,
+        // dataType: 'json',
+        processResults:function(data){
+          return{
+            results : data
+          };
+        }
+      }
+    }).on('change',function(){
+      renderTable();
+    });
+
+    $('select.acType').select2({
+      placeholder: "Select Account Type",
+      allowClear: true,
+      ajax:{
+        url:'getAcType',
+        // dataType: 'json',
+        processResults:function(data){
+          return{
+            results:data
+          }
+        }
+      }
+    }).on('change',function(){
+      renderTable();
+    });
+
+  });
+
+
+  var getParams = function(){
+    $params = {};
+    $params['ClientCode'] = $('select.name').val();
+    $params['BranchCode'] = $('select.branch').val();
+    $params['AcType'] = $('select.acType').val();
+
+    return $params;
+  }
+
+  var renderTable = function(){
+    $table.bootstrapTable('refresh',{
+      query: getParams()
+    })
+  }
+
+  $table.bootstrapTable({
+    height: getHeight(),
+    query: getParams()
+  });
+  
+
+
+  function getHeight() {
+    return $(window).height() - $('h1').outerHeight(true);
+  }
+
+  function money(value,row,index){
+    return numeral(value).format('0,0.00');
+  }
+
+  function rowStyle(row,index){
+    return {
+      css:{'font-size':'12px'}
+    };
+  }
+
+  $('.bootstrap-table .columns-right.float-right button[name="paginationSwitch"]').empty().html('&#8691;').css('font-weight','bolder');
+  $('.bootstrap-table .columns-right.float-right button[name="refresh"]').empty().html('&#8635;').css('font-weight','bolder');
+  $('.bootstrap-table .columns-right.float-right button').addClass('btn-sm');
+  $('.bootstrap-table .fixed-table-toolbar .float-right.search').addClass('input-group-sm');
+  let filter = `<div class="row f12 clearfix">
+              <div class="col-md-3" >
+                <div class="form-group input-group-sm">
+                  <label>Name</label><br>
+                  <select class="form-control name"></select>
+                </div>
+              </div>
+              <div class="col-md-3" style="padding-right:10px">
+                <div class="form-group input-group-sm">
+                  <label>Branch</label><br>
+                  <select class="form-control branch"></select>
+                </div>
+              </div>
+              <div class="col-md-3"style="padding-left:10px">
+                <div class="form-group input-group-sm">
+                  <label>Account Type</label>
+                  <select class="form-control acType"></select>
+                </div>
+              </div>
+            </div>`;
+  $('.bootstrap-table .fixed-table-toolbar .float-right.search').after(filter);
+</script>

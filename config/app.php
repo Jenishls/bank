@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        // Adldap\Laravel\AdldapAuthServiceProvider::class,
         /*
          * Application Service Providers...
          */
